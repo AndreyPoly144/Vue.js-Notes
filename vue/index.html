@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link rel="stylesheet" href="theme.css" />
+</head>
+
+<body>
+  
+
+  <div class="container pt-5" id="app">
+      <h1 style="color: aliceblue;">Записи</h1>   
+      <input type="text" v-bind:value='input' v-on:input="inputHandler" v-on:keypress.enter="addNewNote"> 
+      <button class="btn" v-on:click="addNewNote" >Добавить</button>  
+      <button class="btn" v-on:click="clearNotes">Очистить Список</button> 
+      <li v-for="(note, key) of notes">
+        {{ note }}{{ key }}
+        <button class="danger" v-on:click="deleteNote(key, $event)">Удалить</button> 
+      </li>      
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
